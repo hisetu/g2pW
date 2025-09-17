@@ -72,7 +72,7 @@ class G2PWConverter:
         if use_cuda:
             self.session_g2pw =  onnxruntime.InferenceSession(onnx_path, sess_options=sess_options, providers=['CUDAExecutionProvider'])
         else:
-            self.session_g2pw =  onnxruntime.InferenceSession(onnx_path, sess_options=sess_options)
+            self.session_g2pw =  onnxruntime.InferenceSession(onnx_path, sess_options=sess_options, providers=['CPUExecutionProvider'])
 
         self.config = load_config(os.path.join(model_dir, 'config.py'), use_default=True)
 
